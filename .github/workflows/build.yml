@@ -1,0 +1,32 @@
+name: Build
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Create the app package
+      run: dotnet pack -o output
+      
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: output/*
