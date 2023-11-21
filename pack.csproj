@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0</PackageVersion>
+    <PackageVersion>2.0</PackageVersion>
     <PackageId>exApiTools.Plugin.Template</PackageId>
     <Title>Exile Api Plugin Template</Title>
     <Authors></Authors>
