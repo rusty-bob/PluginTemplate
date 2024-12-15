@@ -1,6 +1,5 @@
-﻿using ExileCore;
-using ExileCore.PoEMemory.MemoryObjects;
-using SharpDX;
+﻿using ExileCore2;
+using ExileCore2.PoEMemory.MemoryObjects;
 using Vector2 = System.Numerics.Vector2;
 
 namespace Plugin_Name;
@@ -27,7 +26,7 @@ public class Plugin_Name : BaseSettingsPlugin<Plugin_NameSettings>
         //For example, Radar builds the zone map texture here
     }
 
-    public override Job Tick()
+    public override void Tick()
     {
         //Perform non-render-related work here, e.g. position calculation.
         //This method is still called on every frame, so to really gain
@@ -41,13 +40,12 @@ public class Plugin_Name : BaseSettingsPlugin<Plugin_NameSettings>
 
         //otherwise, just run your code here
         //var a = Math.Sqrt(7);
-        return null;
     }
 
     public override void Render()
     {
         //Any Imgui or Graphics calls go here. This is called after Tick
-        Graphics.DrawText($"Plugin {GetType().Name} is working.", new Vector2(100, 100), Color.Red);
+        Graphics.DrawText("Test", Vector2.One, System.Drawing.Color.Red);
     }
 
     public override void EntityAdded(Entity entity)
